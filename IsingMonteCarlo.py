@@ -1,4 +1,4 @@
-# The main purpose of this script is to generate labelled snapshots of Ising configurations
+# The purpose of this script is to generate labelled snapshots of Ising configurations
 import numpy as np
 import os
 from matplotlib import pyplot as plt
