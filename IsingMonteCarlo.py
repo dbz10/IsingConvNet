@@ -46,7 +46,7 @@ class IsingChain(object):
 		# generate images
 		for i in range(n_images):
 			self.simulate(10*self.L**2,beta)
-			filename = 'imgs-paramagnet/img{}beta{}.png'.format(int(1E8*np.random.random()),round(beta,3))
+			filename = 'val_imgs/ordered/img{}beta{}.png'.format(int(1E8*np.random.random()),round(beta,3))
 			plt.matshow((self.conf+1)/2)
 			plt.savefig(filename)
 			plt.close()		
@@ -56,12 +56,13 @@ class IsingChain(object):
 def main():
 	L = 128
 	nsteps = 10*L**2
-	beta0 = 0.3
+	# values used beta = 0.3 for paramagnet, 0.86 for critical, 10 or so for ordered
+	beta0 = 10
 	def beta(beta0):
 		return beta0*(1+0.5*(np.random.random()-0.5))
 
 
-	IsingChains = [IsingChain(L) for i in range(200)]
+	IsingChains = [IsingChain(L) for i in range(100)]
 	[x.generate_imgs(beta(beta0),3) for x in IsingChains]
 
 if __name__ == "__main__":
